@@ -1,0 +1,12 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+    <from method="post" >
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div class="mar-top clearfix">
+            <button class="btn btn-sm btn-primary pull-right mt-md-1" type="submit"><i class="fa fa-pencil fa-fw"></i> Добавить</button>
+        </div>
+    </from>
+
+{% endblock %}

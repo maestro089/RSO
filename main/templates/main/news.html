@@ -1,0 +1,21 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+    {% for p in post %}
+                <div class="col-3">
+          <div class="card shadow-sm">
+            <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="media/{{ p.photo }} ">
+            <div class="card-body">
+              <p class="card-text">{{ p.content|linebreaks|truncatewords:10 }}</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                   <a class="btn btn-sm btn-outline-secondary" href="{% url 'article' p.pk %}">Подробнее</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    {% endfor %}
+    </div>
+{% endblock %}

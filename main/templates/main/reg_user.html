@@ -1,0 +1,58 @@
+{% load static %}
+
+<!DOCTYPE html >
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Регистрация</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'main/css/registration.css' %}">
+    <script type="text/javascript" src="{% static 'main/js/jquery-1.10.2.js' %}"></script>
+
+</head>
+<body>
+
+<div id="wrapper">
+    <div class="user-icon"></div>
+    <div class="pass-icon"></div>
+
+<form name="login-form" class="login-form" action="" method="post">
+{% csrf_token %}
+    <div class="header">
+		<h1>Регистрация</h1>
+		<span>Придумайте логин и надежный пароль </span>
+    </div>
+
+    <div class="content">
+        <div class="username" >{{ form.username }}</div>
+        <div class="password" >{{ form.password1 }}</div>
+        <div class="password" >{{ form.password2 }}</div>
+    </div>
+
+    <div class="footer">
+        <input type="submit" name="submit" value="Регистрация" class="button" />
+        <a href="{% url 'login' %}" class="register" >Вход</a>
+    </div>
+
+</form>
+</div>
+<div class="gradient"></div>
+
+<script type="text/javascript">
+$(document).ready(function() {
+	$(".username").focus(function() {
+		$(".user-icon").css("left","-48px");
+	});
+	$(".username").blur(function() {
+		$(".user-icon").css("left","0px");
+	});
+
+	$(".password").focus(function() {
+		$(".pass-icon").css("left","-48px");
+	});
+	$(".password").blur(function() {
+		$(".pass-icon").css("left","0px");
+	});
+});
+</script>
+</body>
+</html>
